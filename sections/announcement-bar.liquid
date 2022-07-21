@@ -1,6 +1,7 @@
 {%- for block in section.blocks -%}
   {%- case block.type -%}
     {%- when 'announcement' -%}
+     {%- if section.settings.home_page_only == false or template.name == 'index' -%}
       <div class="announcement-bar color-{{ block.settings.color_scheme }} gradient" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
         {%- if block.settings.text != blank -%}
           {%- if block.settings.link != blank -%}
@@ -19,6 +20,7 @@
           {%- endif -%}
         {%- endif -%}
       </div>
+      {%- endif -%}
   {%- endcase -%}
 {%- endfor -%}
 
